@@ -1,0 +1,56 @@
+body {
+            background: linear-gradient(135deg, #0f2027 0%, #2c5364 100%);
+            color: #e0eafc;
+            font-family: 'Segoe UI', Arial, sans-serif;
+        }
+        header {
+            background: #1e3c72;
+            padding: 1em;
+            text-align: center;
+            border-bottom: 4px solid #39c0ed;
+        }
+        h1::after {
+            content: " 🚀⚕️";
+        }
+        section {
+            background: rgba(255,255,255,0.08);
+            margin: 1em 0;
+            padding: 1em;
+            border-radius: 10px;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.2);
+        }
+        h2 {
+            color: #39c0ed;
+        }
+        ul {
+            list-style-type: none;
+            padding-left: 20px;
+        }
+
+        li::before {
+            content: "🩺 ";
+            display: inline-block;
+            width: 1.5em;
+            margin-left:-1.5em;
+        }
+
+        li.rockets::before {
+            content: "🚀 ";
+        }
+
+        footer {
+            background: #1e3c72;
+            text-align: center;
+            padding: 0.5em;
+            border-top: 4px solid #39c0ed;
+        }
+        /* Space theme accent */
+        body::before {
+            content: "";
+            position: fixed;
+            top: 0; left: 0; width: 100vw; height: 100vh;
+            background: url('https://www.transparenttextures.com/patterns/stardust.png');
+            opacity: 0.2;
+            pointer-events: none;
+            z-index: -1;
+        }
