@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Career Path Mind Map</title>
+  <style>
+    body {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      min-height: 100vh;
+      background: #f0f0f0;
+      font-family: Arial, sans-serif;
+    }
+
+    .mind-map {
+      position: relative;
+      text-align: center;
+    }
+
+    ul {
+      list-style: none;
+      padding: 0;
+      margin: 0;
+    }
+
+    /* Central node */
+    .mind-map > li {
+      display: inline-block;
+      background: #ff6f61;
+      color: white;
+      padding: 15px 25px;
+      border-radius: 50px;
+      font-weight: bold;
+      position: relative;
+      z-index: 1;
+    }
+
+    /* Subtopic nodes */
+    .mind-map ul li {
+      background: #6baed6;
+      color: white;
+      padding: 10px 20px;
+      border-radius: 50px;
+      margin: 20px 0;
+      position: relative;
+      width: 120px;
+      text-align: center;
+    }
+
+    /* Positioning subtopics */
+    .mind-map > ul {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 50px;
+    }
+
+    /* Connectors for subtopics */
+    .mind-map ul li::before {
+      content: '';
+      position: absolute;
+      top: -20px;
+      left: 50%;
+      width: 2px;
+      height: 20px;
+      background: #333;
+    }
+
+    /* Horizontal connectors from central node */
+    .mind-map > ul > li::after {
+      content: '';
+      position: absolute;
+      top: 50%;
+      left: -50px;
+      width: 50px;
+      height: 2px;
+      background: #333;
+      transform: translateY(-50%);
+    }
+
+    /* Adjust connectors for left and right branches */
+    .mind-map > ul > li:nth-child(odd)::after {
+      left: auto;
+      right: -50px;
+    }
+
+    /* Nested subtopics */
+    .mind-map ul ul {
+      position: relative;
+      display: block;
+    }
+
+    /* Connectors for nested subtopics */
+    .mind-map ul ul li::before {
+      left: 50%;
+      top: -20px;
+      height: 20px;
+    }
+
+    /* Remove connector for first-level nodes directly under root */
+    .mind-map > li::before,
+    .mind-map > li::after {
+      display: none;
+    }
+  </style>
+</head>
+<body>
+  <ul class="mind-map">
+    <li>Main Topic
+      <ul>
+        <li>Subtopic 1
+          <ul>
+            <li>Detail 1.1</li>
+            <li>Detail 1.2</li>
+          </ul>
+        </li>
+        <li>Subtopic 2
+          <ul>
+            <li>Detail 2.1</li>
+            <li>Detail 2.2</li>
+          </ul>
+        </li>
+        <li>Subtopic 3</li>
+      </ul>
+    </li>
+  </ul>
+</body>
+</html>
