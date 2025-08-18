@@ -3,7 +3,6 @@ body {
   color: #e0eafc;
   font-family: 'Segoe UI', Arial, sans-serif;
   margin: 0;
-  padding: 20px;
 }
 
 body::before {
@@ -24,15 +23,25 @@ header {
   padding: 1em;
   text-align: center;
   border-bottom: 4px solid #39c0ed;
-  border-radius: 10px;
-  margin-bottom: 20px;
 }
 
 h1::after {
   content: " 🚀⚕️";
 }
 
-main {
+.w3-content, .w3-container {
+  background: transparent;
+}
+
+.w3-container, .w3-row-padding {
+  background: rgba(255, 255, 255, 0.08);
+  margin: 1em 0;
+  padding: 1em;
+  border-radius: 10px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
+}
+
+.personal-columns {
   display: flex;
   gap: 20px;
   max-width: 1200px;
@@ -54,7 +63,7 @@ section {
   box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
 }
 
-h2 {
+h2, h3 {
   color: #39c0ed;
 }
 
@@ -79,16 +88,45 @@ footer {
   text-align: center;
   padding: 0.5em;
   border-top: 4px solid #39c0ed;
-  border-radius: 10px;
-  margin-top: 20px;
 }
 
-/* Responsive design for smaller screens */
+/* Override W3.CSS navbar and button styles */
+.w3-bar {
+  background: #1e3c72 !important;
+  border-bottom: 4px solid #39c0ed;
+}
+
+.w3-button {
+  color: #e0eafc !important;
+}
+
+.w3-button:hover {
+  background: #39c0ed !important;
+  color: #0f2027 !important;
+}
+
+/* Style images and cards */
+.w3-display-container, .w3-card {
+  background: rgba(255, 255, 255, 0.1);
+  border-radius: 10px;
+}
+
+.w3-image {
+  border-radius: 10px;
+}
+
+/* Responsive adjustments */
 @media (max-width: 768px) {
-  main {
+  .personal-columns {
     flex-direction: column;
   }
   .column {
     width: 100%;
+  }
+  .w3-hide-small {
+    display: none !important;
+  }
+  .w3-row-padding {
+    padding: 0.5em;
   }
 }
