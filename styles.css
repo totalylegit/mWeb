@@ -25,8 +25,8 @@ header {
   border-bottom: 4px solid #39c0ed;
 }
 
-h1::after {
-  content: " 🚀⚕️";
+.w3-image.low-brightness {
+  filter: brightness(50%);
 }
 
 .w3-content, .w3-container {
@@ -129,4 +129,8 @@ footer {
   .w3-row-padding {
     padding: 0.5em;
   }
+}
+
+html {
+  scroll-behavior: smooth;
 }
