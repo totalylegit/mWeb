@@ -9,55 +9,6 @@
   <script src="script.js" defer></script>
 </head>
 <body>
-
-<!-- php code but github pages does not support it
-
-
-<?php
-$servername = "localhost";
-$username = "username";
-$password = "password";
-$dbname = "myDB";
-
-// Create connection
-$conn = new mysqli($servername, $username, $password);
-// Check connection
-if ($conn->connect_error) {
-  die("Connection failed: " . $conn->connect_error);
-}
-
-// Create database
-$sql = "CREATE DATABASE IF NOT EXISTS $dbname";
-if ($conn->query($sql) === TRUE) {
-  echo "Database created successfully<br>";
-} else {
-  echo "Error creating database: " . $conn->error . "<br>";
-}
-
-// Select the database
-$conn->select_db($dbname);
-
-// Create table
-$sql = "CREATE TABLE IF NOT EXISTS users (
-  id INT(6) UNSIGNED AUTO_INCREMENT PRIMARY KEY,
-  firstname VARCHAR(30) NOT NULL,
-  lastname VARCHAR(30) NOT NULL,
-  email VARCHAR(50),
-  reg_date TIMESTAMP DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP
-)";
-
-if ($conn->query($sql) === TRUE) {
-  echo "Table created successfully";
-} else {
-  echo "Error creating table: " . $conn->error;
-}
-
-$conn->close();
-?>
-
--->
-
-
   <!-- Navbar (sit on top) -->
   <div class="w3-top">
     <div class="w3-bar w3-wide w3-padding w3-card">
@@ -195,7 +146,7 @@ $conn->close();
         <div class="w3-display-container">
           <a href="pages/chem.html" style="text-decoration:none;">
           <div class="w3-display-topleft w3-black w3-padding">Chemistry</div>
-          <img src="/w3images/house2.jpg" alt="House" style="width:100%;">
+          <img src="img/chem.jpg" alt="House" style="width:100%;">
           </a>
         </div>
       </div>
@@ -209,9 +160,9 @@ $conn->close();
       </div>
       <div class="w3-col l3 m6 w3-margin-bottom">
         <div class="w3-display-container">
-          <a href="pages/pcbuild.html" style="text-decoration:none;">
+          <a href="pages/fitness.html" style="text-decoration:none;">
           <div class="w3-display-topleft w3-black w3-padding">Fitness</div>
-          <img src="/w3images/house4.jpg" alt="House" style="width:99%">
+          <img src="img/davidgoggins.png" alt="House" style="width:99%">
           </a>
         </div>
       </div>
