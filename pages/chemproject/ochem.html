@@ -4,10 +4,10 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Michael's Portfolio - Organic Chemistry</title>
-    <link rel="stylesheet" href="../styles.css">
+    <link rel="stylesheet" href="../../styles.css">
     <link rel="stylesheet" href="https://www.w3schools.com/w3css/5/w3.css">
     <script src="../script.js" defer></script>
-    <link rel="icon" type="image/x-icon" href="logo.jpg">
+    <link rel="icon" type="image/x-icon" href="../../logo.jpg">
 </head>
 <body>
 <!--Nav Bar-->
@@ -44,13 +44,16 @@
         <li><strong>Halides:</strong> Compounds containing halogen atoms (e.g., chloromethane, bromobenzene).</li>
     </ul>
     <p>These functional groups play a crucial role in determining the chemical properties and reactivity of organic compounds. Understanding these groups is essential for studying organic chemistry and its applications in various fields such as pharmaceuticals, materials science, and biochemistry.</p>
+    <button class="w3-button w3-blue" onclick="document.getElementById('ochem-fr').style.display='block';document.getElementById('ochem').style.display='none';">Afficher en français</button>
 </div>
 <!--Organic Chemistry Groups (French)-->
-<div class="w3-container w3-padding-32" id="ochem-fr">
+<div class="w3-container w3-padding-32" id="ochem-fr" style="display:none;">
     <h2 class="w3-border-bottom w3-border-light-grey w3-padding-16">Groupes de Chimie Organique</h2>
     <h3>Introduction</h3>
     <p>La chimie organique est l'étude des composés contenant du carbone, de leurs propriétés, structures et réactions. Les composés organiques sont classés en différents groupes fonctionnels en fonction de leur comportement chimique et de leurs caractéristiques. Voici quelques groupes courants en chimie organique :</p>
     
+    <img src="../../img/ochem.png" alt="Groupes de Chimie Organique" style="width:100%;max-width:600px">
+
     <h3>Groupes Courants de Chimie Organique</h3>
     <ul>
         <li><strong>Alcanes :</strong> Hydrocarbures saturés avec des liaisons simples (par exemple, méthane, éthane).</li>
@@ -67,7 +70,23 @@
         <li><strong>Halogénures :</strong> Composés contenant des atomes d'halogène (par exemple, chlorométhane, bromobenzène).</li>
     </ul>
     <p>Ces groupes fonctionnels jouent un rôle crucial dans la détermination des propriétés chimiques et de la réactivité des composés organiques. Comprendre ces groupes est essentiel pour étudier la chimie organique et ses applications dans divers domaines tels que la pharmacie, la science des matériaux et la biochimie.</p>
+    <button class="w3-button w3-blue" onclick="document.getElementById('ochem').style.display='block';document.getElementById('ochem-fr').style.display='none';">Show in English</button>
 </div>
+<!--Isomers (English)-->
+<div class="w3-container w3-padding-32" id="isomers">
+    <h2 class="w3-border-bottom w3-border-light-grey w3-padding-16">Isomers</h2>
+    <h3>Constitutional (Structural) Isomers</h3>
+    <p>Isomersare compounds with the same molecular formula but different structural shape. For example, you can have pentane in a straight line, corner, or even like a cross (Image Below)</p>
+    <img src="../../img/isomers.png" alt="Isomers" style="width:100%;max-width:600px">
+    <h3>Stereoisomers</h3>
+    <p>Stereoisomers are compounds where the molecular formula and chains are the same but the 3D configuration is different. </p>
+    <h4>Diastereoisomers</h4>
+    <p>Diastereoisomer are stereoisomers based on double bonds. </p>
+    <img src="../../img/pentene_isomers.png" alt="Stereoisomers" style="width:100%;max-width:600px">
+</div>
+
+<!--Mol view helepd made these images: https://app.molview.com/-->
+
 <footer class="w3-center w3-black w3-padding-16">
     <p>© 2024 Michael's Portfolio</p>
 </footer>

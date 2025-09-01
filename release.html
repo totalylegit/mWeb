@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Michael's Portfolio - Release Notes</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="https://www.w3schools.com/w3css/5/w3.css">
+    <script src="script.js" defer></script>
+    <link rel="icon" type="image/x-icon" href="logo.jpg">
+</head>
+<body>
+<!--Nav Bar-->
+<div class="w3-top">
+    <div class="w3-bar w3-wide w3-padding w3-card">
+      <a href="index.html" class="w3-bar-item w3-button"><b>Michael's</b> Portfolio</a>
+      <div class="w3-right w3-hide-small">
+        <a href="index.html" class="w3-bar-item w3-button">Home</a>
+      </div>
+    </div>
+  </div>
+<!-- Page content -->
+    <div class="w3-container w3-padding-32" id="releasenotes">
+        <h3 class="w3-border-bottom w3-border-light-grey w3-padding-16">Release Notes</h3>
+        <div id="github-commits">
+            <h4>Latest GitHub Commits</h4>
+            <ul id="commit-list">
+                <li>Loading commits...</li>
+            </ul>
+        </div>
+        <style>
+            #commit-list li {
+                margin-bottom: 1.5em;
+                font-size: 1.2em;
+            }
+            #commit-list a {
+                font-size: 1.2em;
+            }
+            #commit-list small {
+                font-size: 1em;
+            }
+        </style>
+        <script>
+            // Replace with your GitHub username and repo
+            const username = "totalylegit";
+            const repo = "mWeb";
+            const commitList = document.getElementById("commit-list");
+
+            fetch(`https://api.github.com/repos/${username}/${repo}/commits?per_page=20`)
+                .then(response => response.json())
+                .then(data => {
+                    commitList.innerHTML = "";
+                    data.slice(0, 20).forEach(commit => { // (0,20) means show 20 commits
+                        const li = document.createElement("li");
+                        li.innerHTML = `<a href="${commit.html_url}" target="_blank">${commit.commit.message}</a> <small>(${commit.commit.author.date.substring(0,10)})</small>`;
+                        commitList.appendChild(li);
+                    });
+                })
+                .catch(() => {
+                    commitList.innerHTML = "<li>Unable to load commits.</li>";
+                });
+        </script>
+    </div>
+</body>
+</html>
