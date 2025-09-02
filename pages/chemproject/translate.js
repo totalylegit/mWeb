@@ -1,4 +1,5 @@
 const translations = {
+    isomers: {
     en: {
         title: 'Isomers',
         content: `
@@ -75,14 +76,26 @@ const translations = {
         `,
         buttonText: 'Show in English'
     }
+},
+    hydrocarbons: {
+        en: {
+            title: 'Hydrocarbons',
+            content: ``,
+            buttonText: 'Afficher en français'
+        },
+        fr: {
+            title: 'Hydrocarbures',
+            content: ``,
+            buttonText: 'Show in English'
+        }
+    }
 };
-
 function toggleLanguage(config) {
-    const { buttonId, elements, languages, defaultLang = 'en' } = config;
+    const { buttonId, section, elements, languages, defaultLang = 'en' } = config;
     const button = document.getElementById(buttonId);
     
-    if (!button || !elements || !languages) {
-        console.error('Invalid configuration: missing button, elements, or languages');
+    if (!button || !elements || !languages || !translations[section]) {
+        console.error('Invalid configuration: missing button, elements, languages, or section');
         return;
     }
 
@@ -99,46 +112,43 @@ function toggleLanguage(config) {
     elements.forEach(({ id, property, key }) => {
         const element = document.getElementById(id);
         if (element) {
-            element[property] = translations[nextLang][key] || '';
+            element[property] = translations[section][nextLang][key] || '';
         } else {
             console.warn(`Element with ID "${id}" not found`);
         }
     });
 
     // Update button text and language state
-    button.textContent = translations[nextLang].buttonText || 'Toggle Language';
+    button.textContent = translations[section][nextLang].buttonText || 'Toggle Language';
     button.dataset.lang = nextLang;
 }
 
 function initializeTranslation(config) {
-    const { buttonId, defaultLang = 'en' } = config;
+    const { buttonId, section, elements, languages, defaultLang = 'en' } = config;
     const button = document.getElementById(buttonId);
     
-    if (!button) {
-        console.error(`Button with ID "${buttonId}" not found`);
+    if (!button || !translations[section]) {
+        console.error(`Button with ID "${buttonId}" or section "${section}" not found`);
         return;
     }
 
-    // Set initial language
+    // Set initial language and content
     button.dataset.lang = defaultLang;
-    button.textContent = translations[defaultLang].buttonText || 'Toggle Language';
+    button.textContent = translations[section][defaultLang].buttonText || 'Toggle Language';
     
+    // Set initial content for elements
+    elements.forEach(({ id, property, key }) => {
+        const element = document.getElementById(id);
+        if (element) {
+            element[property] = translations[section][defaultLang][key] || '';
+        } else {
+            console.warn(`Element with ID "${id}" not found`);
+        }
+    });
+
     // Add click event listener
     button.addEventListener('click', () => toggleLanguage(config));
 }
 
-// Example configuration for the isomers page
-const isomersConfig = {
-    buttonId: 'isomers-toggle-btn',
-    elements: [
-        { id: 'isomers-title', property: 'textContent', key: 'title' },
-        { id: 'isomers-content', property: 'innerHTML', key: 'content' }
-    ],
-    languages: ['en', 'fr'],
-    defaultLang: 'en'
-};
-
-// Initialize on page load
-document.addEventListener('DOMContentLoaded', () => {
-    initializeTranslation(isomersConfig);
-});
+// Export functions for use in other scripts (if using ES Modules)
+export { toggleLanguage, initializeTranslation };
