@@ -33,6 +33,42 @@
 
   <!-- Page content -->
   <div class="w3-content w3-padding">
+    <!-- To do List-->
+    <div class="w3-container w3-padding-32" id="admissionstimer" style="max-width:800px; margin:0 auto;">
+      <h3 class="w3-border-bottom w3-border-light-grey w3-padding-16" style="text-align:center;">Admissions Countdown</h3>
+      <div style="display: flex; justify-content: center;">
+        <h1 id="timer" style="display: flex; justify-content: center; align-items: center; height: 100px; font-size: 2em; letter-spacing: 0.2em; width: 100%; text-align: center;"></h1>
+      </div>
+      <script>
+        var countDownDate = new Date("October 1, 2025 23:59:59").getTime();
+        var timerElem = document.getElementById("timer");
+
+        var x = setInterval(function() {
+          var now = new Date().getTime();
+          var distance = countDownDate - now;
+          var days = Math.floor(distance / (1000 * 60 * 60 * 24));
+          var hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+          var minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+          var seconds = Math.floor((distance % (1000 * 60)) / 1000);
+          timerElem.innerHTML = 
+            `<span style="flex:1">${days} <small>Days</small></span>` +
+            `<span style="flex:1">${hours} <small>Hours</small></span>` +
+            `<span style="flex:1">${minutes} <small>Mins</small></span>` +
+            `<span style="flex:1">${seconds} <small>Secs</small></span>` +
+            `<span style="flex:2">Left before admissions open!</span>`;
+          if (distance < 0) {
+            clearInterval(x);
+            timerElem.innerHTML = "EXPIRED";
+          }
+        }, 1000);
+      </script>
+    </div>
+    <div class="w3-container w3-padding-32" id="todo">
+      <h3 class="w3-border-bottom w3-border-light-grey w3-padding-16">To Do List</h3>
+      
+
+
+    </div>
     <!-- Personal Section -->
     <div class="w3-container w3-padding-32" id="personal">
       <h3 class="w3-border-bottom w3-border-light-grey w3-padding-16">Personal</h3>
