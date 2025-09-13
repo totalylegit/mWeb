@@ -1,0 +1,397 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Michael's Portfolio</title>
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/feather-icons/dist/feather.min.js"></script>
+    <style>
+        body {
+            margin: 0;
+            font-family: Arial, sans-serif;
+            background-color: #000000; /* Black body to prevent white flash */
+            color: #ffffff;
+            overflow-x: hidden;
+        }
+        .fixed-bg {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
+            background-color: #000000; /* Black fill for transparency or gaps */
+            z-index: -1;
+            transition: opacity 0.4s ease-in-out; /* Shortened for crisper fade */
+        }
+        #fixed-bg-current {
+            opacity: 1;
+        }
+        #fixed-bg-next {
+            opacity: 0;
+        }
+        .content {
+            min-height: 100vh;
+            position: relative;
+            z-index: 1;
+        }
+        .glass-card {
+            background: rgba(255, 255, 255, 0.15);
+            backdrop-filter: blur(10px);
+            -webkit-backdrop-filter: blur(10px);
+            border-radius: 20px;
+            border: 1px solid rgba(255, 255, 255, 0.18);
+            padding: 2rem;
+            margin-bottom: 5rem;
+        }
+        header {
+            padding: 3rem 1rem;
+            position: sticky;
+            top: 0;
+            z-index: 10;
+            background: rgba(0, 0, 0, 0.5);
+        }
+        nav {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 1rem;
+        }
+        nav h1 {
+            font-size: 1.5rem;
+            font-weight: bold;
+        }
+        nav a {
+            color: #ffffff;
+            text-decoration: none;
+            margin-left: 1rem;
+            font-size: 1rem;
+        }
+        nav a:hover {
+            color: #d1d5db;
+        }
+        main {
+            padding: 5rem 1rem;
+        }
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+        section {
+            margin-bottom: 5rem;
+            padding: 4rem 0;
+            min-height: 100vh;
+        }
+        section h2 {
+            font-size: 2rem;
+            font-weight: bold;
+            margin-bottom: 1rem;
+        }
+        section h3 {
+            font-size: 1.5rem;
+            font-weight: bold;
+            margin-bottom: 1rem;
+        }
+        .grid {
+            display: grid;
+            gap: 2rem;
+        }
+        .grid-2 {
+            grid-template-columns: 1fr;
+        }
+        .grid-4 {
+            grid-template-columns: repeat(2, 1fr);
+            gap: 1rem;
+        }
+        @media (min-width: 768px) {
+            .grid-2 {
+                grid-template-columns: 1fr 1fr;
+            }
+            .grid-4 {
+                grid-template-columns: repeat(4, 1fr);
+            }
+        }
+        ul {
+            list-style: disc;
+            padding-left: 1.5rem;
+        }
+        ul li {
+            margin-bottom: 0.5rem;
+            opacity: 0.9;
+        }
+        p {
+            opacity: 0.9;
+            margin-bottom: 1rem;
+        }
+        form {
+            display: flex;
+            flex-direction: column;
+            gap: 1rem;
+        }
+        input, textarea {
+            padding: 0.75rem;
+            background: rgba(255, 255, 255, 0.2);
+            border: none;
+            border-radius: 0.5rem;
+            color: #ffffff;
+            font-size: 1rem;
+        }
+        input::placeholder, textarea::placeholder {
+            color: #d1d5db;
+        }
+        textarea {
+            height: 8rem;
+            resize: vertical;
+        }
+        button {
+            padding: 0.75rem 1.5rem;
+            background: rgba(255, 255, 255, 0.2);
+            border: none;
+            border-radius: 9999px;
+            color: #ffffff;
+            cursor: pointer;
+            font-size: 1rem;
+            transition: background 0.3s;
+        }
+        button:hover {
+            background: rgba(255, 255, 255, 0.3);
+        }
+        a.read-more, a.contact-link {
+            color: #93c5fd;
+            text-decoration: none;
+        }
+        a.read-more:hover, a.contact-link:hover {
+            color: #60a5fa;
+        }
+        footer {
+            padding: 3rem 1rem;
+            text-align: center;
+        }
+        footer p {
+            opacity: 0.7;
+        }
+    </style>
+</head>
+<body>
+    <div id="fixed-bg-current" class="fixed-bg" style="background-image: linear-gradient(rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.3)), url('img/Black_Hole.png');"></div>
+    <div id="fixed-bg-next" class="fixed-bg" style="background-image: linear-gradient(rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.3)), url('img/Black_Hole.png');"></div>
+
+    <div class="content">
+        <header>
+            <nav class="glass-card">
+                <h1>Michael's Portfolio</h1>
+                <div>
+                    <a href="#personal">Personal</a>
+                    <a href="#projects">Projects</a>
+                    <a href="#blog">Blog</a>
+                    <a href="#contact">Contact</a>
+                </div>
+            </nav>
+        </header>
+
+        <main class="container">
+            <section id="personal" data-aos="fade-up" data-bg-image="img/blackholePainting.png">
+                <div class="glass-card">
+                    <h2>Personal</h2>
+                    <div class="grid grid-2">
+                        <div>
+                            <h3>About Me</h3>
+                            <p>I am passionate about medicine and fascinated by science. My interests include space, physics, chemistry, and biology. I dabble in computer science and coding, like this website. I also enjoy video editing, 3D modeling, and digital art. I will be applying to university soon.</p>
+                        </div>
+                        <div>
+                            <h3>My Interests</h3>
+                            <ul>
+                                <li>Medicine</li>
+                                <li>Space Exploration</li>
+                                <li>Chemistry</li>
+                                <li>Biology</li>
+                            </ul>
+                        </div>
+                        <div>
+                            <h3>My Career Path Steps</h3>
+                            <ul>
+                                <li>Become a doctor (Cardiac Surgeon)</li>
+                                <li>Become a Fellow of the Royal College of Physicians and Surgeons of Canada (RCPSC)</li>
+                                <li>Certification Exam from RCPSC for cardiac surgery</li>
+                                <li>Obtain medical license from Medical Council of Canada (MCC)</li>
+                                <li>Pass Medical Council of Canada Qualifying Examination (MCCQE)</li>
+                                <li>Complete medical residency (Direct-entry 6 year program)</li>
+                                <li>Graduate from medical school (MD degree)</li>
+                                <li>Complete undergraduate degree (BSc), Pass MCAT, High Score in CASPER, High Score in CARS</li>
+                            </ul>
+                        </div>
+                        <div>
+                            <h3>University Ranking</h3>
+                            <ul>
+                                <li>1. McGill University</li>
+                                <li>2. University of Toronto</li>
+                            </ul>
+                            <h3>University Ranking for Me</h3>
+                            <p><strong>Safety:</strong></p>
+                            <ul>
+                                <li>Western University</li>
+                                <li>Royal Military College</li>
+                                <li>UOttawa</li>
+                            </ul>
+                            <p><strong>Match:</strong></p>
+                            <ul>
+                                <li>U of Toronto</li>
+                                <li>Queens</li>
+                            </ul>
+                            <p><strong>Reach:</strong></p>
+                            <ul>
+                                <li>McGill</li>
+                                <li>McMaster</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <section id="projects" data-aos="fade-up" data-bg-image="img/Earth_shot_blender.png">
+                <div class="glass-card">
+                    <h2>Projects</h2>
+                    <div class="grid grid-2">
+                        <div>
+                            <h3>My Projects</h3>
+                            <ul>
+                                <li>Coding (HTML, CSS, PHP, JS)</li>
+                                <li>Rocket Simulation</li>
+                                <li>Fitness</li>
+                                <li>Physics Simulations</li>
+                                <li>Houdini Simulations</li>
+                                <li>Blender</li>
+                                <li>Video Editing/Creation</li>
+                                <li>Chemistry</li>
+                                <li>Drawing</li>
+                                <li>(Future) 3D Printing</li>
+                            </ul>
+                        </div>
+                        <div>
+                            <h3>One Word That Describes Me</h3>
+                            <p><strong>To Endure</strong><br>From: Indurare (Greek), To Last or To Suffer Through</p>
+                            <p>Life is about self-sacrifice. It is about giving up time now to do what is needed to achieve a greater goal later. It is about giving up instant gratification for long-term fulfillment. You must endure your self-sacrifice, your pain, and your suffering to truly achieve.</p>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <section id="blog" data-aos="fade-up" data-bg-image="img/Untitled Planet Shot (blue).png">
+                <div class="glass-card">
+                    <h2>Blog</h2>
+                    <div>
+                        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
+                        <p>Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
+                        <a href="#" class="read-more">Read More</a>
+                    </div>
+                    <h3>Release Notes</h3>
+                    <p>Read the latest additions to my website!</p>
+                    <a href="#" class="read-more">Read More</a>
+                </div>
+            </section>
+
+            <section id="contact" data-aos="fade-up" data-bg-image="img/Black_Hole.png">
+                <div class="glass-card">
+                    <h2>Contact</h2>
+                    <div>
+                        <p>Let's get in touch and talk about your next project.</p>
+                        <form>
+                            <input type="text" placeholder="Name">
+                            <input type="email" placeholder="Email">
+                            <input type="text" placeholder="Subject">
+                            <textarea placeholder="Message"></textarea>
+                            <button type="button">Send Message</button>
+                        </form>
+                        <h3>References</h3>
+                        <div class="grid grid-4">
+                            <div>
+                                <p><strong>YMCA</strong><br>Regional Manager<br>Phasellus eget enim eu lectus faucibus vestibulum. Suspendisse sodales pellentesque elementum.</p>
+                                <a href="#" class="contact-link">Contact</a>
+                            </div>
+                            <div>
+                                <p><strong>Jane Doe</strong><br>Architect<br>Phasellus eget enim eu lectus faucibus vestibulum. Suspendisse sodales pellentesque elementum.</p>
+                                <a href="#" class="contact-link">Contact</a>
+                            </div>
+                            <div>
+                                <p><strong>Mike Ross</strong><br>Architect<br>Phasellus eget enim eu lectus faucibus vestibulum. Suspendisse sodales pellentesque elementum.</p>
+                                <a href="#" class="contact-link">Contact</a>
+                            </div>
+                            <div>
+                                <p><strong>Dan Star</strong><br>Architect<br>Phasellus eget enim eu lectus faucibus vestibulum. Suspendisse sodales pellentesque elementum.</p>
+                                <a href="#" class="contact-link">Contact</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+        </main>
+
+        <footer>
+            <div class="container">
+                <div class="glass-card">
+                    <p>Powered by w3.css | © 2025 Michael's Portfolio</p>
+                </div>
+            </div>
+        </footer>
+    </div>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            // Preload images with error handling
+            const imagePaths = [
+                'img/Black_Hole.png',
+                'img/blackholePainting.png',
+                'img/Earth_shot_blender.png',
+                'img/Untitled Planet Shot (blue).png'
+            ];
+            imagePaths.forEach(path => {
+                const img = new Image();
+                img.src = path;
+                img.onload = () => console.log(`Loaded: ${path}`);
+                img.onerror = () => console.error(`Failed to load: ${path}`);
+            });
+
+            const bgCurrent = document.getElementById('fixed-bg-current');
+            const bgNext = document.getElementById('fixed-bg-next');
+            const sections = document.querySelectorAll('section[data-bg-image]');
+            let isTransitioning = false;
+
+            const observer = new IntersectionObserver((entries) => {
+                if (isTransitioning) return;
+                let activeSection = null;
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        activeSection = entry.target;
+                    }
+                });
+                if (activeSection) {
+                    const bgImage = activeSection.getAttribute('data-bg-image');
+                    isTransitioning = true;
+                    bgNext.style.backgroundImage = `linear-gradient(rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.3)), url('${bgImage}')`;
+                    bgNext.style.opacity = '1';
+                    bgCurrent.style.opacity = '0';
+                    setTimeout(() => {
+                        bgCurrent.style.backgroundImage = bgNext.style.backgroundImage;
+                        bgCurrent.style.opacity = '1';
+                        bgNext.style.opacity = '0';
+                        isTransitioning = false;
+                    }, 200); // Shortened for less overlay overlap
+                }
+            }, { 
+                threshold: 0.5 // Switch at 50% visibility
+            });
+
+            sections.forEach(section => observer.observe(section));
+
+            AOS.init();
+            feather.replace();
+        });
+    </script>
+</body>
+</html>

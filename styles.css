@@ -157,3 +157,18 @@ div:nth-of-type(4) { animation-delay: 0.4s; }
 html {
   scroll-behavior: smooth;
 }
+
+.fixed-bg {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-size: cover;  /* Fills viewport without letterboxing or jumps */
+    background-position: center;  /* Centers the crop consistently */
+    background-repeat: no-repeat;  /* Prevents any repetition */
+    background-color: #000000;  /* Black fill for transparent PNG areas or edges */
+    z-index: -1;
+    transition: background-image 0.5s ease-in-out;  /* Keep for fade effect */
+    will-change: background-image;  /* Optimizes rendering to reduce jank */
+}
